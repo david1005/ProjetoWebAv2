@@ -46,7 +46,7 @@
                                             <th>CPF</th>
                                             <th>Email</th>
                                             <th>Telefone</th>
-                                            <th>Endereço</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -57,13 +57,12 @@
                                                 <td>${cliente.cpf}</td>
                                                 <td>${cliente.email}</td>
                                                 <td>${cliente.phone}</td>
-                                                <td>${cliente.endereco}</td>
                                                 <td class="right aligned">
                                                     <div class="ui red horizontal label">
-                                                        <a href="${pageContext.request.contextPath}/cliente/remove/${cliente.id}"><i class=" x icon"></i></a>
+                                                        <a href="${pageContext.request.contextPath}/cliente/remove/${cliente.id}"><i class="window close icon"></i></a>
                                                     </div>
                                                     <div class="ui blue horizontal label">
-                                                        <a a href="${pageContext.request.contextPath}/cliente/atualizar/${cliente.id}"><i class=" info circle icon"></i></a>
+                                                        <a a href="${pageContext.request.contextPath}/cliente/atualizar/${cliente.id}"><i class="file alternate icon"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>

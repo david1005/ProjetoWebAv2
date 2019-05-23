@@ -66,8 +66,8 @@ public class ClienteRepositorio {
     public List<Cliente> list() {
         EntityManager em = FabricaDeConexao.getEntityManager();
         try {
-            List<Cliente> clienteList = em.createQuery("from cliente", Cliente.class).getResultList();
-            return clienteList;
+            List<Cliente> cliente = em.createQuery("from Cliente", Cliente.class).getResultList();
+            return cliente;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -83,8 +83,8 @@ public class ClienteRepositorio {
         return c;
     }
 
-    // BUSCA CLIENTE POR NOME OU CPF
-    public Cliente buscarPorNome(String name) {
+    // BUSCA CLIENTE POR NOME 
+    public Cliente buscarPorNome(String busca) {
 
         EntityManager em = FabricaDeConexao.getEntityManager();
 
@@ -92,7 +92,7 @@ public class ClienteRepositorio {
         Criteria c = s.createCriteria(Cliente.class);
         c.createAlias("cliente", "c");
 
-        Criterion c1 = Restrictions.eq("c.nome", name);
+        Criterion c1 = Restrictions.eq("c.nome", busca);
 
         c.add(c1);
 
@@ -101,4 +101,5 @@ public class ClienteRepositorio {
 
         return cliente;
     }
+    
 }

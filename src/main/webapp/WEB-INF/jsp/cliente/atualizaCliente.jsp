@@ -25,7 +25,7 @@
                 <div class="twelve wide column right aligned">
                     <div class="ui text container segment">
                         <h2 class="ui header center aligned">Atualizar Cliente</h2>
-                        <form action="${pageContext.request.contextPath}/cliente/update" method="post" class="ui form">
+                        <form action="${pageContext.request.contextPath}/cliente/atualizar" method="post" class="ui form">
                             <input type="hidden" name="cliente.id" value="${cliente.id}"/>
                             
                             <div class="field">
@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>		
-                            <h4 class="ui dividing left aligned header info">Informações de Contato</h4>
+                            
                             <div class="fields">
                                 <div class="eight wide field">
                                     <label>Email</label>
@@ -52,7 +52,7 @@
                                     <input type="text" name="cliente.phone" value="${cliente.phone}" placeholder="Ex: 999999999" required>
                                 </div>
                             </div>
-                            <h4 class="ui dividing left aligned header info">Informações de Endereço</h4>
+                            
                             <div class="fields">
                                 <div class="ten wide field">
                                     <label>Rua</label>
@@ -77,9 +77,9 @@
                             </div>
                             <div class="sixteen wide column right aligned">
                                 <div class="ui buttons">
-                                    <button class="ui button"><a href="${pageContext.request.contextPath}/">Cancelar</a></button>
-                                    <div class="or" data-text="ou"></div>
-                                    <button type="submit" class="ui positive button">Salvar</button>
+                                    <button class="ui olive basic button"><a href="${pageContext.request.contextPath}/">Cancelar</a></button>
+                                    
+                                    <button type="submit" class="ui olive basic button">Salvar</button>
                                 </div>
                             </div>
                         </form>

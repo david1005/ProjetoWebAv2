@@ -72,8 +72,8 @@ public class ClienteController {
 
     @Get("busca")
     public void buscarPorNome(String busca) {
-        List<Cliente> clienteList= clienteRepositorio.list();
-        result.include("clienteList", clienteList);
+        Cliente cliente = clienteRepositorio.buscarPorNome(busca);
+        result.include("clienteList", cliente);
         result.redirectTo(this).listaCliente();
 
     }
