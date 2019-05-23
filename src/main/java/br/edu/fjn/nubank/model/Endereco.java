@@ -5,6 +5,7 @@
  */
 package br.edu.fjn.nubank.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ import javax.persistence.Id;
  * @author david027
  */
 @Entity
-public class Endereco {
+public class Endereco implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;

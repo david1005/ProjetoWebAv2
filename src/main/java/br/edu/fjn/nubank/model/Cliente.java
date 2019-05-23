@@ -5,6 +5,7 @@
  */
 package br.edu.fjn.nubank.model;
 
+import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,14 +20,14 @@ import javax.persistence.OneToOne;
  * @author david027
  */
 @Entity
-public class Cliente {
+public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     
     @Column(nullable = false)
     private String name;
-    
+   
     @Column(nullable = false, unique = true)
     private String cpf;
     

@@ -3,7 +3,7 @@
     Created on : 21/05/2019, 19:49:31
     Author     : david027
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,7 +60,7 @@
                                                 <td>${cliente.endereco}</td>
                                                 <td class="right aligned">
                                                     <div class="ui red horizontal label">
-                                                        <a href="${pageContext.request.contextPath}/cliente/remove/${cliente.cpf}"><i class=" x icon"></i></a>
+                                                        <a href="${pageContext.request.contextPath}/cliente/remove/${cliente.id}"><i class=" x icon"></i></a>
                                                     </div>
                                                     <div class="ui blue horizontal label">
                                                         <a a href="${pageContext.request.contextPath}/cliente/atualizar/${cliente.id}"><i class=" info circle icon"></i></a>

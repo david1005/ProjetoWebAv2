@@ -12,6 +12,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.nubank.model.Cliente;
 import br.edu.fjn.nubank.repositorios.ClienteRepositorio;
+import java.util.List;
 import javax.inject.Inject;
 
 /**
@@ -21,56 +22,59 @@ import javax.inject.Inject;
 @Controller
 @Path("cliente")
 public class ClienteController {
+
     @Inject
     private Result result;
     @Inject
     private ClienteRepositorio clienteRepositorio;
-    
+
     @Get("new")
-    public void formularioCliente(){
-        
+    public void formularioCliente() {
+
     }
-    
+
     @Post("salvar")
-    public void salvar(Cliente cliente){
+    public void salvar(Cliente cliente) {
         clienteRepositorio.salvar(cliente);
         result.redirectTo(this).listaCliente();
-        
+
     }
-    
+
     @Get("remove")
-    public void deletar(Cliente cliente){
+    public void deletar(Cliente cliente) {
         clienteRepositorio.deletar(cliente);
         result.redirectTo(this).listaCliente();
     }
-    
+
     @Post("atualizar")
-    public void Atualizar(Cliente cliente){
+    public void Atualizar(Cliente cliente) {
         clienteRepositorio.atualizar(cliente);
         result.redirectTo(this).listaCliente();
     }
-    
+
     @Get("list")
-    public void listaCliente(){
+    public void listaCliente() {
         result.include("clienteList", clienteRepositorio.list());
+
     }
+
     @Get("detalhe/{id}")
-    public void buscaPorId(Integer id){
+    public void buscaPorId(Integer id) {
         Cliente cliente = clienteRepositorio.buscarPorId(id);
         result.include("cliente", cliente);
         result.redirectTo(this).atualizaCliente();
-        
+
     }
-    
-    public void atualizaCliente(){
-        
+
+    public void atualizaCliente() {
+
     }
-    
+
     @Get("busca")
-    public void buscarPorNome(String name){
-        Cliente cliente = clienteRepositorio.buscarPorNome(name);
-        result.include("clienteList", cliente);
+    public void buscarPorNome(String busca) {
+        List<Cliente> clienteList= clienteRepositorio.list();
+        result.include("clienteList", clienteList);
         result.redirectTo(this).listaCliente();
-        
+
     }
 }

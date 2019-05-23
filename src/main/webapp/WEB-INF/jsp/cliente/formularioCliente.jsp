@@ -55,23 +55,23 @@
                             <div class="fields">
                                 <div class="ten wide field">
                                     <label style="color: white">Rua</label>
-                                    <input type="text" name="cliente.rua" value="${cliente.rua}" placeholder="Ex: Lonardo da Silva Fontes" required>
+                                    <input type="text" name="cliente.endereco.rua" value="${cliente.rua}" placeholder="Ex: Lonardo da Silva Fontes" required>
                                 </div>
                                 <div class="three wide field">
                                     <label style="color: white">Número</label>
-                                    <input type="text" name="cliente.numero" value="${cliente.numero}" placeholder="Ex: 111A" required>
+                                    <input type="text" name="cliente.endereco.numero" value="${cliente.numero}" placeholder="Ex: 111A" required>
                                 </div>
                                 <div class="five wide field">
                                     <label style="color: white">CEP</label>
-                                    <input type="text" name="cliente.cep" value="${cliente.cep}" placeholder="Ex: 63180-00" required>
+                                    <input type="text" name="cliente.endereco.cep" value="${cliente.cep}" placeholder="Ex: 63180-00" required>
                                 </div
                                 <div class="ten wide field">
                                     <label style="color: white">BAIRRO</label>
-                                    <input type="text" name="cliente.bairro" value="${cliente.bairro}" placeholder="Ex: Joao cabral" required>
+                                    <input type="text" name="cliente.endereco.bairro" value="${cliente.bairro}" placeholder="Ex: Joao cabral" required>
                                 </div>
                                 <div class="six wide field">
                                     <labels tyle="color: white">CIDADE</label>
-                                    <input type="text" name="cliente.cidade" value="${cliente.cidade}" placeholder="Ex. Barbalha" required>
+                                    <input type="text" name="cliente.endereco.cidade" value="${cliente.cidade}" placeholder="Ex. Barbalha" required>
                                  </div>
                             <div class="sixteen wide column right aligned" >
                                 <div  class="ui buttons">

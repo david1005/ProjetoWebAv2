@@ -19,56 +19,55 @@ import org.hibernate.criterion.Restrictions;
  * @author david027
  */
 public class ClienteRepositorio {
-    
+
     public void salvar(Cliente cliente) {
-		EntityManager manager = FabricaDeConexao.getEntityManager();
-                
-                manager.getTransaction().begin();
-		try {
-			
-			manager.persist(cliente);
-			manager.getTransaction().commit();
-		} catch (Exception e) {
-			manager.getTransaction().rollback();
-		}
-		manager.close();
-	}
-    
-    
-        public void atualizar(Cliente cliente) {
-		EntityManager manager = FabricaDeConexao.getEntityManager();
+        EntityManager manager = FabricaDeConexao.getEntityManager();
 
-		try {
-			manager.getTransaction().begin();
-			manager.merge(cliente);
-			manager.getTransaction().commit();
+        manager.getTransaction().begin();
+        try {
 
-		} catch (Exception e) {
-			manager.getTransaction().rollback();
-		}
-		manager.close();
-	}
-        
-        public void deletar(Cliente cliente) {
-		EntityManager manager = FabricaDeConexao.getEntityManager();
+            manager.persist(cliente);
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        }
+        manager.close();
+    }
 
-		try {
-			manager.getTransaction().begin();
-			Cliente c = manager.find(Cliente.class, cliente.getId());
-			manager.remove(c);// deletar
-			manager.getTransaction().commit();
-		} catch (Exception e) {
-			manager.getTransaction().rollback();
-		}
-		manager.close();
-	}
-        
-        // LISTA TODOS OS CLIENTE
+    public void atualizar(Cliente cliente) {
+        EntityManager manager = FabricaDeConexao.getEntityManager();
+
+        try {
+            manager.getTransaction().begin();
+            manager.merge(cliente);
+            manager.getTransaction().commit();
+
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        }
+        manager.close();
+    }
+
+    public void deletar(Cliente cliente) {
+        EntityManager manager = FabricaDeConexao.getEntityManager();
+
+        try {
+            manager.getTransaction().begin();
+            Cliente c = manager.find(Cliente.class, cliente.getId());
+            manager.remove(c);// deletar
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        }
+        manager.close();
+    }
+
+    // LISTA TODOS OS CLIENTE
     public List<Cliente> list() {
         EntityManager em = FabricaDeConexao.getEntityManager();
         try {
-            List<Cliente> cliente = em.createQuery("from cliente", Cliente.class).getResultList();
-            return cliente;
+            List<Cliente> clienteList = em.createQuery("from cliente", Cliente.class).getResultList();
+            return clienteList;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -76,35 +75,30 @@ public class ClienteRepositorio {
             em.close();
         }
     }
-    
-    
+
     public Cliente buscarPorId(Integer id) {
-		EntityManager em = FabricaDeConexao.getEntityManager();
-		Cliente c = em.find(Cliente.class, id);
-		em.clear();
-		return c;
-	}
-    
+        EntityManager em = FabricaDeConexao.getEntityManager();
+        Cliente c = em.find(Cliente.class, id);
+        em.clear();
+        return c;
+    }
+
     // BUSCA CLIENTE POR NOME OU CPF
     public Cliente buscarPorNome(String name) {
-           
-		EntityManager em = FabricaDeConexao.getEntityManager();
 
-		Session s = (Session) em.getDelegate();
-		Criteria c = s.createCriteria(Cliente.class);
-		c.createAlias("cliente", "c");
+        EntityManager em = FabricaDeConexao.getEntityManager();
 
-		Criterion c1 = Restrictions.eq("c.nome", name);
+        Session s = (Session) em.getDelegate();
+        Criteria c = s.createCriteria(Cliente.class);
+        c.createAlias("cliente", "c");
 
-		c.add(c1);
+        Criterion c1 = Restrictions.eq("c.nome", name);
 
-		Cliente cliente = (Cliente) c.uniqueResult();
-		em.close();
+        c.add(c1);
 
-		return cliente;
-	}    }
-    
-        
-        
-    
+        Cliente cliente = (Cliente) c.uniqueResult();
+        em.close();
 
+        return cliente;
+    }
+}

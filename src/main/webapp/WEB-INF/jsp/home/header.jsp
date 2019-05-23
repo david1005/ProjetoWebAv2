@@ -8,7 +8,7 @@
         </br>
         <h1>
             </br>
-            Bem-vindo(a), ${FuncionarioSession.userName}.
+            Bem-vindo(a), ${userSession.userName}.
         </h1>
         <div class="ui divider"></div>
     </div>

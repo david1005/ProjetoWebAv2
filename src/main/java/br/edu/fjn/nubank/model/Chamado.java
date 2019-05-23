@@ -5,10 +5,12 @@
  */
 package br.edu.fjn.nubank.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +24,7 @@ import javax.persistence.TemporalType;
  * @author david027
  */
 @Entity
-public class Chamado {
+public class Chamado implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -30,11 +32,11 @@ public class Chamado {
     
     private String descricao;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Funcionario funcionario;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Cliente cliente;
 
