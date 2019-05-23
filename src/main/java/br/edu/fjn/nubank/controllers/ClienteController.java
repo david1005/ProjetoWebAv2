@@ -40,16 +40,16 @@ public class ClienteController {
 
     }
 
-    @Get("remove")
+    @Post("remover")
     public void deletar(Cliente cliente) {
         clienteRepositorio.deletar(cliente);
         result.redirectTo(this).listaCliente();
     }
 
-    @Post("atualizar")
+    @Get("atualizar/{id}")
     public void Atualizar(Cliente cliente) {
         clienteRepositorio.atualizar(cliente);
-        result.redirectTo(this).listaCliente();
+        result.redirectTo(this).atualizaCliente();
     }
 
     @Get("list")

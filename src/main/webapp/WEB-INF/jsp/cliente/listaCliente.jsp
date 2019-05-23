@@ -4,6 +4,7 @@
     Author     : david027
 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -57,13 +58,19 @@
                                                 <td>${cliente.cpf}</td>
                                                 <td>${cliente.email}</td>
                                                 <td>${cliente.phone}</td>
-                                                <td class="right aligned">
-                                                    <div class="ui red horizontal label">
-                                                        <a href="${pageContext.request.contextPath}/cliente/remove/${cliente.id}"><i class="window close icon"></i></a>
+                                                <td class="right aligned">                                                   
+                                                    <div >
+                                                        <a href="${pageContext.request.contextPath}/cliente/atualizar/${cliente.id}">
+                                                            <button class="right attached ui button">Editar</button>
+                                                        </a>
+                                                    
+                                                        <form action="${pageContext.request.contextPath}/cliente/remover" method="post">
+                                                        <input type="hidden" name="cliente.id" value="${cliente.id}"/>
+                                                        <button type="submit" class="ui left attached button">Remover</button>
+                                                        </form>
                                                     </div>
-                                                    <div class="ui blue horizontal label">
-                                                        <a a href="${pageContext.request.contextPath}/cliente/atualizar/${cliente.id}"><i class="file alternate icon"></i></a>
-                                                    </div>
+                                                    
+                                                
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -78,3 +85,6 @@
        
     </body>
 </html>
+
+
+<!--i class="window close icon"></i-->

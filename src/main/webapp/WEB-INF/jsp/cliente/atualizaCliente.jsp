@@ -60,19 +60,19 @@
                                 </div>
                                 <div class="three wide field">
                                     <label>Número</label>
-                                    <input type="text" name="cliente.numero" value="${cliente.numero}" placeholder="Ex: 111A" required>
+                                    <input type="text" name="cliente.numero" value="${cliente.endereco.numero}" placeholder="Ex: 111A" required>
                                 </div>
                                 <div class="five wide field">
                                     <label>Cep</label>
-                                    <input type="text" name="cliente.cep" value="${cliente.cep}" placeholder="Ex: 63180-00" required>
+                                    <input type="text" name="cliente.cep" value="${cliente.endereco.cep}" placeholder="Ex: 63180-00" required>
                                 </div>
                                 <div class="five wide field">
                                     <label>Bairro</label>
-                                    <input type="text" name="cliente.bairro" value="${cliente.bairro}" placeholder="Ex: Joao cabral" required>
+                                    <input type="text" name="cliente.bairro" value="${cliente.endereco.bairro}" placeholder="Ex: Joao cabral" required>
                                 </div>
                                 <div class="five wide field">
                                     <label>Cidade</label>
-                                    <input type="text" name="cliente..cidade" value="${cliente.cidade}" placeholder="Barbalha" required>
+                                    <input type="text" name="cliente..cidade" value="${cliente.endereco.cidade}" placeholder="Barbalha" required>
                                 </div>
                             </div>
                             <div class="sixteen wide column right aligned">
