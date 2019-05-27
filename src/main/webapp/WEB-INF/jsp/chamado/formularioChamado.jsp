@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="eight wide field">
                                         <label style="color: white">Data da Visita</label>
-                                        <input type="datetime-local" name="chamado.chamadoData" value="${chamado.chamadoData}" required>
+                                        <input type="datetime-local" name="chamado.data" value="${chamado.data}" required>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                 <div class="fields">
                                     <div class="eight wide field">
                                         <label style="color: white">Código do Cliente</label>
-                                        <input type="numero" name="chamado.cliente" value="${chamado.cliente}" placeholder="Ex: 123" required>
+                                        <input type="numero" name="chamado.cliente.id" value="${chamado.cliente.id}" placeholder="Ex: 123" required>
                                     </div>
                                     
                                     

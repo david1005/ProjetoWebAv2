@@ -40,21 +40,53 @@ public class ClienteController {
 
     }
 
+    @Post("update")
+    public void Atualizar(Cliente cliente) {
+        ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
+        
+        if(clienteRepositorio.buscarPorId(cliente.getId()) != null){
+            Cliente cl = clienteRepositorio.buscarPorId(cliente.getId());
+            
+            if(cliente.getName() != null){
+                cl.setName(cliente.getName());                
+            }
+            if(cliente.getCpf() != null){
+                cl.setCpf(cliente.getCpf());
+            }
+            if(cliente.getEmail() != null){
+                cl.setCpf(cliente.getCpf());                
+            }
+            if(cliente.getPhone() != null){
+                cl.setPhone(cliente.getPhone());                
+            }
+            if(cliente.getEndereco() != null){
+                cl.setEndereco(cliente.getEndereco());
+            }
+            clienteRepositorio.atualizar(cl);
+            result.redirectTo(this).listaCliente();
+        }else{
+            result.include("menssagem", "Não existe Cliente relacionado com esse ID");
+            result.redirectTo(this).atualizaCliente();        
+        } 
+    }
+
+    @Get("list")
+    public void listaCliente() {
+        result.include("clienteList", clienteRepositorio.list());
+
+    }
+
     @Post("remover")
     public void deletar(Cliente cliente) {
         clienteRepositorio.deletar(cliente);
         result.redirectTo(this).listaCliente();
     }
 
-    @Get("atualizar/{id}")
-    public void Atualizar(Cliente cliente) {
-        clienteRepositorio.atualizar(cliente);
-        result.redirectTo(this).atualizaCliente();
-    }
-
-    @Get("list")
-    public void listaCliente() {
-        result.include("clienteList", clienteRepositorio.list());
+    @Get("busca")
+    public void buscarPorNome(String busca) {
+        Cliente cliente = clienteRepositorio.buscarPorNome(busca);
+        result.include("clienteList", cliente);
+        result.redirectTo(this).listaCliente();
 
     }
 
@@ -65,16 +97,30 @@ public class ClienteController {
         result.redirectTo(this).atualizaCliente();
 
     }
-
+    
+    @Get("atualizar")
     public void atualizaCliente() {
 
     }
 
-    @Get("busca")
-    public void buscarPorNome(String busca) {
-        Cliente cliente = clienteRepositorio.buscarPorNome(busca);
-        result.include("clienteList", cliente);
-        result.redirectTo(this).listaCliente();
+}
+
+/*
+                                        
+        
+@Get("detalhe")
+    public void buscaPorId(Integer id) {
+        Cliente cliente = clienteRepositorio.buscarPorId(id);
+        result.include("cliente", cliente);
+        result.redirectTo(this).atualizaCliente();
 
     }
-}
+
+   @Get("id/{id}")
+    public void get(Integer id) {
+        result.include("cliente", clienteRepositorio.buscarPorId(id));
+        result.include("actionForm", "atualizar");
+        result.include("labelButton", "Atualizar");
+        result.of(this).formularioCliente();
+    }
+ */

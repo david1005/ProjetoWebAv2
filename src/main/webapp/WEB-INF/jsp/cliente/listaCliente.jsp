@@ -59,11 +59,7 @@
                                                 <td>${cliente.email}</td>
                                                 <td>${cliente.phone}</td>
                                                 <td class="right aligned">                                                   
-                                                    <div >
-                                                        <a href="${pageContext.request.contextPath}/cliente/atualizar/${cliente.id}">
-                                                            <button class="right attached ui button">Editar</button>
-                                                        </a>
-                                                    
+                                                    <div >                                                                                                            
                                                         <form action="${pageContext.request.contextPath}/cliente/remover" method="post">
                                                         <input type="hidden" name="cliente.id" value="${cliente.id}"/>
                                                         <button type="submit" class="ui left attached button">Remover</button>

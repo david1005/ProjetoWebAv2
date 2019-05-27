@@ -44,7 +44,7 @@ public class Chamado implements Serializable {
     private ChamadoStatus status;
 
     @Temporal(TemporalType.DATE)
-    private Calendar chamadoData;
+    private Calendar data;
     
     public Chamado(){
         
@@ -90,12 +90,12 @@ public class Chamado implements Serializable {
         this.status = status;
     }
 
-    public Calendar getChamadoData() {
-        return chamadoData;
+    public Calendar getData() {
+        return data;
     }
 
-    public void setChamadoData(Calendar chamadoData) {
-        this.chamadoData = chamadoData;
+    public void setChamadoData(Calendar data) {
+        this.data = data;
     }
 
     
