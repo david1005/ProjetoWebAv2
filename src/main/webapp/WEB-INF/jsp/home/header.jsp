@@ -5,15 +5,21 @@
 --%>
 <div class="ui grid stackable">
     <div>
-        </br>
-        <h1>
-            </br>
-            Bem-vindo(a), ${userSession.userName}.
-        </h1>
-        <div class="ui divider"></div>
+        <div className="navbar-header" class="col-2">
+            <a href='${pageContext.request.contextPath}' class="navbar-brand">
+                <img src="${pageContext.request.contextPath}/css/seja-bem-vindo-png-.png" width=50% height=50%>
+            </a>
+        </div>
+
+        <div  ui right  width=30% height=30%> 
+           <button class="ui right olive basic button sair marginTop" >
+            <a href="${pageContext.request.contextPath}/sair">
+                SAIR
+            </a>
+        </button>     
+        </div>
     </div>
     <div class="fifteen wide column">   
         <div class="ui divider"></div>
     </div>  
 </div>  
-        
