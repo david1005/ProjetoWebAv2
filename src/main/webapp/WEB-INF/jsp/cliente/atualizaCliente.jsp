@@ -82,7 +82,7 @@
                                         <input type="text" name="cliente.endereco.cidade" value="${cliente.endereco.cidade}" placeholder="Ex. Barbalha" required>
                                         </div>
                                             
-                                                <h6>${menssagem}</h6>
+                                                <h6>${mensagem}</h6>
                                                     
                                             <div class="ui buttons">
                                                 <button class="ui olive basic button"><a href="${pageContext.request.contextPath}/">Cancelar</a></button>

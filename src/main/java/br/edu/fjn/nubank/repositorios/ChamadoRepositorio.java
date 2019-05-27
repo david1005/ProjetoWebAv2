@@ -50,7 +50,7 @@ public class ChamadoRepositorio {
     public List<Chamado> list() {
         EntityManager em = FabricaDeConexao.getEntityManager();
         try {
-            List<Chamado> chamado = em.createQuery("from chamado", Chamado.class).getResultList();
+            List<Chamado> chamado = em.createQuery("from Chamado", Chamado.class).getResultList();
             return chamado;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -58,6 +58,5 @@ public class ChamadoRepositorio {
         } finally {
             em.close();
         }
-    }
-    
+    }    
 }

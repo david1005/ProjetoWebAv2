@@ -43,7 +43,7 @@ public class Chamado implements Serializable {
     @Enumerated(EnumType.STRING)
     private ChamadoStatus status;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar data;
     
     public Chamado(){
@@ -94,9 +94,11 @@ public class Chamado implements Serializable {
         return data;
     }
 
-    public void setChamadoData(Calendar data) {
+    public void setData(Calendar data) {
         this.data = data;
     }
+
+  
 
     
     

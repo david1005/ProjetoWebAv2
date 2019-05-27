@@ -21,48 +21,69 @@ import javax.inject.Inject;
 @Controller
 @Path("chamado")
 public class ChamadoController {
+
     @Inject
     private Result result;
-    
+
     @Inject
     private ChamadoRepositorio chamadoRepositorio;
-    
+
     @Get("new")
-    public void formularioChamado(){
-        
+    public void formularioChamado() {
+
     }
-    
+
     @Post("salvar")
-    public void salvar(Chamado chamado){
+    public void salvar(Chamado chamado) {
         chamadoRepositorio.salvar(chamado);
         result.redirectTo(this).listaChamado();
-        
+
     }
-    
-    @Post("atualizar")
-    public void atualizar(Chamado chamado){
-        chamadoRepositorio.atualizar(chamado);
-        result.redirectTo(this).listaChamado();
-        
-    } 
-    
-    @Get("detalhe/{id}")
-    public void buscarPorId(Integer id){
-        Chamado chamado = chamadoRepositorio.buscarPorId(id);
-        result.include("chamado",chamado);
-        result.redirectTo(this).atualizaChamado();
-                
-        
-    }
-            
-        @Get("list")
-        public void listaChamado(){
-            result.include("chamadoList",chamadoRepositorio.list());
-        }    
-    
-        public void atualizaChamado(){
-            
+
+    @Post("update")
+    public void atualizar(Chamado chamado) {
+        ChamadoRepositorio chamadoRepositorio = new ChamadoRepositorio();
+
+        if (chamadoRepositorio.buscarPorId(chamado.getId()) != null) {
+            Chamado ch = chamadoRepositorio.buscarPorId(chamado.getId());
+
+            if (chamado.getStatus() != null) {
+                {
+                    ch.setStatus(chamado.getStatus());
+                }
+                if (chamado.getData() != null) {
+                    ch.setData(chamado.getData());
+                }
+                if (chamado.getCliente() != null) {
+                    ch.setCliente(chamado.getCliente());
+                }
+                if (chamado.getDescricao() != null) {
+                    ch.setDescricao(chamado.getDescricao());
+                }
+                chamadoRepositorio.atualizar(ch);
+                result.redirectTo(this).listaChamado();
+            } else {
+                result.include("mensagem", "Não existe Chamado com esse Id");
+                result.redirectTo(this).atualizaChamado();
+            }
         }
-    
-    
+    }
+
+    @Get("detalhe/{id}")
+    public void buscarPorId(Integer id) {
+        Chamado chamado = chamadoRepositorio.buscarPorId(id);
+        result.include("chamado", chamado);
+        result.redirectTo(this).atualizaChamado();
+    }
+
+    @Get("list")
+    public void listaChamado() {
+        result.include("chamadoList", chamadoRepositorio.list());
+
+    }
+
+    @Get("atualizar")
+    public void atualizaChamado() {
+
+    }
 }

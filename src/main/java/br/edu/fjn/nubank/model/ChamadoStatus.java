@@ -10,6 +10,6 @@ package br.edu.fjn.nubank.model;
  * @author david027
  */
 public enum ChamadoStatus {
-    PENDENTE, CONCLUIDO
+    AGENDADO, REALIZADO
     
 }
