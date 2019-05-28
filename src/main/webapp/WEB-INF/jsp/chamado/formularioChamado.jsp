@@ -38,6 +38,8 @@
                                         </select>
                                     </div>
                                     <div class="eight wide field">
+                                        
+                                        
                                         <label style="color: white">Data da Visita</label>
                                         <input type="datetime-local" name="chamado.data" value="${chamado.data}" required>
                                     </div>

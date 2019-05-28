@@ -25,8 +25,8 @@
                 <div class="twelve wide column right aligned">
                     <div class="ui inverted text container segment">
                         <h2 class="ui header center aligned">Cadastrar Cliente</h2>
-                        <form action="${pageContext.request.contextPath}/cliente/salvar" method="post" class="ui form">
-
+                        <form action="${pageContext.request.contextPath}/cliente/${actionForm}" method="post" class="ui form">
+                                <input type="hidden" name="cliente.id" value="${cliente.id}"/>
                             <div class="field">
                                 <div class="fields">
                                     <div class="nine wide field" >

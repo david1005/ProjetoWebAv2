@@ -102,6 +102,13 @@ public class ClienteController {
     public void atualizaCliente() {
 
     }
+    @Get("id/{id}")
+    public void get(Integer id){
+        result.include("cliente", clienteRepositorio.buscarPorId(id));
+        result.include("actionForm", "update");
+        result.include("labelButton", "Atualizar");
+        result.of(this).formularioCliente();
+    }
 
 }
 
