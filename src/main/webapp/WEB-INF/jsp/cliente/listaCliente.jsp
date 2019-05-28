@@ -28,14 +28,7 @@
                     <div class="ui text container segment">
                         <h2 class="ui header center aligned">Lista de Clientes</h2>
                         <div class="ui divider"></div>
-                        <form action="${pageContext.request.contextPath}/cliente/busca" class="ui form" method="get">
-                            <div class="ui action fluid input">
-                                <input type="text" name="busca" placeholder="Buscar por Nome do Cliente...">
-                                <button class="ui icon button">
-                                    <i class="search icon"></i>
-                                </button>
-                            </div>
-                        </form>
+                        
                         <div class="ui divider"></div>
                         <div class="ui column grid">
                             <div class="column">

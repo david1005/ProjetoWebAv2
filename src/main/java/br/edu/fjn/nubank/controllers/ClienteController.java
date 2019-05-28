@@ -104,10 +104,8 @@ public class ClienteController {
     }
     @Get("id/{id}")
     public void get(Integer id){
-        result.include("cliente", clienteRepositorio.buscarPorId(id));
-        result.include("actionForm", "update");
-        result.include("labelButton", "Atualizar");
-        result.of(this).formularioCliente();
+        result.include("cliente", clienteRepositorio.buscarPorId(id));        
+        result.of(this).atualizaCliente();
     }
 
 }
