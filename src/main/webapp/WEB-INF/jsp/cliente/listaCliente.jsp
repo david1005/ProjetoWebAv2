@@ -28,7 +28,15 @@
                     <div class="ui text container segment">
                         <h2 class="ui header center aligned">Lista de Clientes</h2>
                         <div class="ui divider"></div>
-                        
+                        <form action="${pageContext.request.contextPath}/cliente/buscar" class="ui form" method="get">
+                            <div class="ui action fluid input">
+                                <input type="text" name="name" value="${name}" placeholder="Buscar por Nome do Cliente...">
+                              <div class="col-0">
+                                    <input id="btnList" type="submit" class="ui left attached button" value="Buscar"/>
+                                </div>
+                            </div>
+                        </form>
+
                         <div class="ui divider"></div>
                         <div class="ui column grid">
                             <div class="column">

@@ -4,3 +4,9 @@
     Author     : david027
 --%>
 
+
+</div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"/>
+</body>
+</html>

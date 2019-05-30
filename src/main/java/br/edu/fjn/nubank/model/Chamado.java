@@ -7,6 +7,8 @@ package br.edu.fjn.nubank.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,11 +32,7 @@ public class Chamado implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     
-    private String descricao;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn
-    private Funcionario funcionario;
+    private String descricao;   
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
@@ -43,12 +41,16 @@ public class Chamado implements Serializable {
     @Enumerated(EnumType.STRING)
     private ChamadoStatus status;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Calendar data;
+    
+    private String data;
+    
+      
     
     public Chamado(){
         
     }
+
+  
 
     public Integer getId() {
         return id;
@@ -66,14 +68,6 @@ public class Chamado implements Serializable {
         this.descricao = descricao;
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
@@ -88,18 +82,15 @@ public class Chamado implements Serializable {
 
     public void setStatus(ChamadoStatus status) {
         this.status = status;
-    }
+    }        
 
-    public Calendar getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(String data) {
         this.data = data;
     }
-
-  
-
     
-    
+                  
 }

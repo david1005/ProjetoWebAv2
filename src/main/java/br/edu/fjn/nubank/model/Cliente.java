@@ -42,7 +42,7 @@ public class Cliente implements Serializable {
     private Endereco endereco;
      
     
-     private Chamado chamado;
+    private Chamado chamado;
      
      
      public Cliente(){

@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -84,22 +85,32 @@ public class ClienteRepositorio {
     }
 
     // BUSCA CLIENTE POR NOME 
-    public Cliente buscarPorNome(String busca) {
-
+   public List<Cliente> buscaPorNome(String name) {
         EntityManager em = FabricaDeConexao.getEntityManager();
-
-        Session s = (Session) em.getDelegate();
-        Criteria c = s.createCriteria(Cliente.class);
-        c.createAlias("cliente", "c");
-
-        Criterion c1 = Restrictions.eq("c.nome", busca);
-
-        c.add(c1);
-
-        Cliente cliente = (Cliente) c.uniqueResult();
+        Session session;
+        session = (Session) em.getDelegate();
+        Criteria criteria = session.createCriteria(Cliente.class);
+        criteria.add(Restrictions.ilike("name", name, MatchMode.ANYWHERE));
+        List<Cliente> cliente = criteria.list();
         em.close();
-
         return cliente;
     }
+   
+   public Cliente buscarPorNome(String name) {
+		EntityManager em = FabricaDeConexao.getEntityManager();
+
+		Session s = (Session) em.getDelegate();
+		Criteria c = s.createCriteria(Cliente.class);
+		c.createAlias("cliente", "c");
+
+		Criterion c1 = Restrictions.eq("c.name", name);
+
+		c.add(c1);
+
+		Cliente cl = (Cliente) c.uniqueResult();
+		em.close();
+
+		return cl;
+	}
     
 }

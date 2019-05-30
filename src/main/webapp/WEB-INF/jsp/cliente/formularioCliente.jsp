@@ -26,7 +26,7 @@
                     <div class="ui inverted text container segment">
                         <h2 class="ui header center aligned">Cadastrar Cliente</h2>
                         <form action="${pageContext.request.contextPath}/cliente/salvar" method="post" class="ui form">
-                                
+                            
                             <div class="field">
                                 <div class="fields">
                                     <div class="nine wide field" >
@@ -36,7 +36,7 @@
 
                                     <div class="five wide field">
                                         <label style="color: white">CPF</label>
-                                        <input type="text" name="cliente.cpf" value="${cliente.cpf}" placeholder="Ex: 999-999-999-09" pattern="[0-9]{11}" title="digite um cpf válido" required>
+                                        <input id="cpf" type="text" name="cliente.cpf" value="${cliente.cpf}" placeholder="Ex: 999-999-999-09" pattern="[0-9]{11}" maxlength="11" title="digite um cpf válido" required>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="eight wide field">
                                     <label style="color: white">Telefone</label>
-                                    <input type="number" name="cliente.phone" value="${cliente.phone}" placeholder="Ex: 999999999" required>
+                                    <input type="number" name="cliente.phone" value="${cliente.phone}" placeholder="Ex: 999999999" maxlength="9" required>
                                 </div>
                             </div>
 
@@ -83,5 +83,8 @@
                                 </div>
                                 <%@include file="../home/footer.jsp" %>    
                         </form>            
+                        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"/>
+                        <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"/>
+                        <script type="text/javascript" src="${pageContext.request.contextPath}/js/home.js"/>
                         </body>
                         </html>

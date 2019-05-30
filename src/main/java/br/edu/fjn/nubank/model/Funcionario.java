@@ -25,6 +25,11 @@ public class Funcionario implements Serializable {
    
     @Column(nullable = false)
     private String userName;
+    
+    public Funcionario(){
+        
+    }
+    
 
     public Integer getId() {
         return id;
@@ -40,10 +45,5 @@ public class Funcionario implements Serializable {
 
     public void setName(String userName) {
         this.userName = userName;
-    }
-    
-    
-    
-    
-    
+    }                    
 }
