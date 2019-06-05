@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adjust.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sem/components/icon.min.css"/>
-
     </head>
     <body>
         <div class="ui center aligned container">
@@ -43,18 +42,15 @@
                                 <table class="ui small stackable striped table">
                                     <thead>
                                         <tr>
-
                                             <th>Nome</th>
                                             <th>CPF</th>
                                             <th>Email</th>
                                             <th>Telefone</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${clienteList}" var="cliente">
                                             <tr>
-
                                                 <td>${cliente.name}</td>
                                                 <td>${cliente.cpf}</td>
                                                 <td>${cliente.email}</td>
@@ -62,7 +58,6 @@
                                                 <td class="right aligned">                                                   
                                                     <div >  
                                                         <button type="submit" class="ui left attached button">
-
                                                             <a href="${pageContext.request.contextPath}/cliente/id/${cliente.id}">Editar</a>
                                                         </button>
                                                         <form action="${pageContext.request.contextPath}/cliente/remover" method="post">
@@ -70,8 +65,6 @@
                                                             <button type="submit" class="ui left attached button">Remover</button>
                                                         </form>
                                                     </div>
-
-
                                                 </td>
                                             </tr>
                                         </c:forEach>

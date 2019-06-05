@@ -14,26 +14,19 @@ import javax.enterprise.context.SessionScoped;
  *
  * @author david027
  */
+//SERÁ MANTIDO EM MEMORIA ATÉ QUE  OUSUÁRIO TERMINE A SESSÃO
 @SessionScoped
-
-public class FuncionarioSession implements Serializable{
-    
-    
+public class FuncionarioSession implements Serializable{        
     
     private boolean logado;
-
  
-
-    public boolean isLogado() {
+    
+    public boolean logado() {
         return logado;
     }
 
     public void setLogado(boolean logado) {
         this.logado = logado;
-    }
-
-    
-    
-    
+    }            
     
 }

@@ -25,9 +25,9 @@ public class LoginRepositorio {
 		try {
 			manager.getTransaction().begin();
 			manager.persist(user);// insert
-			manager.getTransaction().commit();
+			manager.getTransaction().commit();// ENCERRA TRANSAÇÃO SALVANDOS OS DADOS 
 		} catch (Exception e) {
-			manager.getTransaction().rollback();// caso aconteça falha na hora de salvar
+			manager.getTransaction().rollback();// ENCERRA TRANSAÇÃO DESFAZENDO  AS ALTERAÇÕES.  
 		}
 		manager.close();
 	}
@@ -39,7 +39,7 @@ public class LoginRepositorio {
 			manager.merge(user);// update
 			manager.getTransaction().commit();
 		} catch (Exception e) {
-			manager.getTransaction().rollback();// caso aconteça falha na hora de salvar
+			manager.getTransaction().rollback();// "REVERTER"caso aconteça falha na hora de salvar
 			System.out.println("Nosso Tratamento"+e.getMessage());
 		}
 		manager.close();

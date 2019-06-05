@@ -5,13 +5,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class FabricaDeConexao {
-	private static  EntityManagerFactory emf = Persistence.createEntityManagerFactory("OrmPU");
+	//INTERFACE USADA PARA INTERAGIR COM A FABRICA DO GERENCIADOR DE ENTIDADES.
+    private static  EntityManagerFactory emf = Persistence.createEntityManagerFactory("OrmPU");
 	
 	
-	public static EntityManager getEntityManager() {
+	public static EntityManager getEntityManager(){
+            
+                //CRIA E RETORNA UMA ENTIDADE 
 		return emf.createEntityManager();
 	}
-
+        //METODO PARA FECHAR CONEXAO
 	public static void close() {
 		emf.close();
 	}

@@ -12,12 +12,68 @@
         <title>Login</title>
         <!-- Links bootstrap--> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link href="${pageContext.request.contextPath}/css/css.css" rel="stylesheet">
+        <!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css/util.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css/main.css">
+<!--===============================================================================================-->
     </head>
     <body>
+        
+        
+        <div class="limiter">
+		<div class="container-login100" style="background-image: url('${pageContext.request.contextPath}/css/images/suporte-tecnico.png');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+
+				<form class="login100-form validate-form p-b-33 p-t-5" action="${pageContext.request.contextPath}/login" method="post" >
+                                    <div class="input" >                                         
+                                     <h5 style="color: red; border-bottom: 2px;">${mensagem}</h5>
+                                    </div>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" id="userName" name="user.userName" placeholder="Usuário">						
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="user.password"  id="senha" placeholder="Senha">					
+					</div>                                                                            
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn">
+							Login
+						</button>
+
+						<div class="container-login102-form-btn m-t-32">
+							 <p class="text-center small">Não tem uma conta?<a href="${pageContext.request.contextPath}/registrar"> Cadastrar-se</a></p>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+     
+        
+        <!--
+         <div align="center">
+                <h5 style="color: red; border-bottom: 2px;">${mensagem}</h5>
+            </div>
         <div id="login">
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
@@ -42,6 +98,24 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div-->
+           <!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/css/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/css/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/css/vendor/bootstrap/js/popper.js"></script>
+	<script src="${pageContext.request.contextPath}/css/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/css/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/css/vendor/daterangepicker/moment.min.js"></script>
+	<script src="${pageContext.request.contextPath}/css/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/css/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/css/js/main.js"></script>
+                 
     </body>
+   
 </html>

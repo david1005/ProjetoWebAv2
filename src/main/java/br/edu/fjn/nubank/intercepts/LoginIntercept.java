@@ -30,7 +30,7 @@ public class LoginIntercept implements Interceptor{
 
     @Override
     public void intercept(InterceptorStack is, ControllerMethod cm, Object o) throws InterceptionException {
-            if(funcionarioSession.isLogado()){
+            if(funcionarioSession.logado()){
                 is.next(cm, o);
             }else{
                 result.redirectTo(LoginController.class).loginFun();
@@ -40,13 +40,5 @@ public class LoginIntercept implements Interceptor{
     @Override
     public boolean accepts(ControllerMethod cm) {
         return !cm.containsAnnotation(Private.class);
-    }
-
-  
-    
-    
-    
-    
-    
-    
+    }                         
 }

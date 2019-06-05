@@ -21,7 +21,6 @@ import javax.inject.Inject;
  * @author david027
  */
 @Controller
-
 public class LoginController {
 
     @Inject
@@ -31,41 +30,30 @@ public class LoginController {
 
     @Private
     @Get("login")
-    public void loginFun() {
+    public void loginFun(){
 
     }
-    
-    
+        
     @Private
     @Get("registrar")
     public void cadastro(){
         
     }
-
-
-    @Private
-    @Post("auth")
-    public void auth(){
-        funcionarioSession.setLogado(true);        
-        result.redirectTo(HomeController.class).home();
-    }
-
     
     @Private
     @Post("cadastrar")
     public void salvar(Usuario user){
         LoginRepositorio loginRepositorio = new LoginRepositorio();
         
-        if(loginRepositorio.buscarPorNome(user.getUserName()) ==null ){
+        if(loginRepositorio.buscarPorNome(user.getUserName()) == null ){
             loginRepositorio.salvar(user);
             result.redirectTo(this).loginFun();
         }else{
-            result.include("menssagem","Usuário já existe.");
+            result.include("mensagem","Usuário já existe.");
             result.redirectTo(this).cadastro();
-        }
-       
-        
+        }               
     }
+    
     @Private
     @Post("login")
     public void login(Usuario user){
@@ -75,7 +63,7 @@ public class LoginController {
             funcionarioSession.setLogado(true);
             result.redirectTo(HomeController.class).home();
         }else{
-            result.include("menssagem", "Usuario ou senha incorretos.");
+            result.include("mensagem", "Usuario ou senha incorretos.");
             result.redirectTo(this).loginFun();
         }
     }
@@ -85,5 +73,4 @@ public class LoginController {
         funcionarioSession.setLogado(false);
         result.redirectTo(this).loginFun();
     }
-
 }

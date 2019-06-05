@@ -80,34 +80,13 @@ public class ChamadoRepositorio {
             em.close();
         }
     }
-/*    
-  public List<Chamado> buscaPorNome(String name) {
-        EntityManager em = FabricaDeConexao.getEntityManager();
-        Session session;
-        session = (Session) em.getDelegate();
-        Criteria criteria = session.createCriteria(Chamado.class);
-        criteria.createAlias("chamado", "ch");
-        
-        Criterion c1 = Restrictions.eq("ch",);
-        
-        
-        
-        criteria.add(Restrictions.ilike("name", name, MatchMode.ANYWHERE));
-        
-        List<Chamado> chamado = criteria.list();
-        em.close();
-        return chamado;
-    }
-  */
   
-  
-  public List<Chamado> buscaPorClienteName(String name) {
+  public List<Chamado> buscaPorClienteName(String name){            
         EntityManager em = FabricaDeConexao.getEntityManager();
         Session session = (Session) em.getDelegate();
         Criteria criteria = session.createCriteria(Chamado.class);
         criteria.createAlias("cliente", "c");
-        criteria.createAlias("chamado", "ch");
-        criteria.add(Restrictions.ilike("c.name", name, MatchMode.ANYWHERE));
+        criteria.add(Restrictions.ilike("c.name",name, MatchMode.ANYWHERE));
         List<Chamado> chamadoList = criteria.list();
         em.close();
         return chamadoList;

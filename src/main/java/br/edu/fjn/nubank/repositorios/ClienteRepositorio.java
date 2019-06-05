@@ -95,22 +95,4 @@ public class ClienteRepositorio {
         em.close();
         return cliente;
     }
-   
-   public Cliente buscarPorNome(String name) {
-		EntityManager em = FabricaDeConexao.getEntityManager();
-
-		Session s = (Session) em.getDelegate();
-		Criteria c = s.createCriteria(Cliente.class);
-		c.createAlias("cliente", "c");
-
-		Criterion c1 = Restrictions.eq("c.name", name);
-
-		c.add(c1);
-
-		Cliente cl = (Cliente) c.uniqueResult();
-		em.close();
-
-		return cl;
-	}
-    
 }

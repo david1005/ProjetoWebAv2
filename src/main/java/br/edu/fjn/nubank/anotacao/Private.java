@@ -14,6 +14,8 @@ import java.lang.annotation.Target;
  *
  * @author david027
  */
+
+//MEIO DE IMPLEMENTAR RESTRINÇÃO DE ACESSO (RESTRINGIR UMA URL)
 @Target(value = {ElementType.METHOD, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Private {

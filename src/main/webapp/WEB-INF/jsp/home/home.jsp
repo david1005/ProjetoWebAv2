@@ -28,7 +28,7 @@
                
             </div>
         </div>
-                <div>
+                <div class="footer-copyright">
          <%@include file="footer.jsp" %>
                 </div>
     </body>

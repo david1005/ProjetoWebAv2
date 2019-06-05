@@ -33,7 +33,7 @@
                                 <div class="fields">
                                     <div class="eight wide field">
                                         <label style="color: white">Status</label>
-                                        <select type="text" class="ui fluid search dropdown" name="chamado.status" value="${chamado.status}" required>
+                                        <select type="text" class="ui fluid search dropdown" name="chamado.status" " required>
                                             <option value="AGENDADO">Agendado</option>
                                             <option value="REALIZADO">Realizado</option>
                                         </select>
@@ -42,7 +42,7 @@
 
 
                                         <label style="color: white">Data da Visita</label>
-                                        <input type="date" name="chamado.data" format value="${chamado.data}" required>
+                                        <input type="date" name="chamado.data" format  required>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
 
                                 <div class="fields">
                                     <div class="nine wide field" >
-                                        <select class="form-control" name="chamado.cliente.id" value="${chamado.cliente.id}" >
+                                        <select class="form-control" name="chamado.cliente.id"  >
                                             <option value="0" selected>Cliente</option>
                                             <c:forEach items="${clientes}" var="cliente">  
                                                 <option value="${cliente.id}">${cliente.name}</option>
@@ -66,7 +66,7 @@
                                     <div >                                                                                                         
                                         <div class="sixteen  wide field">
                                             <label  class="right" style="color: white">Descrição do Problema</label>
-                                            <textarea type="text" name="chamado.descricao" value="${chamado.descricao}" required >${chamado.descricao}</textarea>
+                                            <textarea type="text" name="chamado.descricao"  required ></textarea>
                                         </div>
                                     </div>
                                 </div>
