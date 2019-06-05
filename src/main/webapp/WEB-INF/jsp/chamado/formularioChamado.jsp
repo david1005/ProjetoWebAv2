@@ -56,11 +56,8 @@
                                             <c:forEach items="${clientes}" var="cliente">  
                                                 <option value="${cliente.id}">${cliente.name}</option>
                                             </c:forEach>
-                                        </select>
-                                            
-                                        
+                                        </select>                                                                                    
                                     </div>
-
                                 </div>
                                 <div >                                                                 
                                     <div >                                                                                                         
